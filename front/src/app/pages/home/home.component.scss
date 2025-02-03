@@ -5,3 +5,27 @@
   align-items: center;
   flex-direction: column;
 }
+
+.buttons {
+  display: flex;
+  gap: 50px;
+
+  button {
+    font-size: 16px;
+    height: 40px;
+    width: 156px;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  img {
+    width: 80%;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+}

@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.openclassrooms.mddapi.dto.UserDto;
+import com.openclassrooms.mddapi.dto.UserDtoWithoutPassword;
 import com.openclassrooms.mddapi.models.UserModel;
 import com.openclassrooms.mddapi.repositories.UserRepository;
 
@@ -48,5 +49,10 @@ public class AuthService {
 		}
 		
 		return null;
+	}
+	
+	public UserDtoWithoutPassword getMe(int id) {
+		UserModel user = userRepository.findById(id).get();
+		return modelMapper.map(user, UserDtoWithoutPassword.class);
 	}
 }

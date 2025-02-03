@@ -17,12 +17,12 @@ public class UserAccountService implements UserDetailsService{
 	private final UserRepository userRepository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-		UserModel userModel = userRepository.findByName(name)
+	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		UserModel userModel = userRepository.findByUserName(userName)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 		
 		return User.builder()
-				.username(userModel.getName())
+				.username(userModel.getUserName())
 				.password(userModel.getPassword())
 				.disabled(false)
 				.build();
